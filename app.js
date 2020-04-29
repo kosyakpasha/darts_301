@@ -11,7 +11,6 @@ class DartsGame {
     return {
       name: playerName,
       currentPoints: 301,
-      isWinner: false,
     }
   });
 
