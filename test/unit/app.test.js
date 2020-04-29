@@ -22,4 +22,8 @@ describe('Test DartsGame', () => {
   test('The score method receive only valid type of data', () => {
     expect(() => game.score('0')).toThrow('Type of index must be an int!');
   });
+
+  test('The throw method receive only valid types of data', () => {
+    expect(() => game.throw('9', '3')).toThrow('All parameters must be an int!');
+  });
 });
