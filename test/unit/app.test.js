@@ -26,4 +26,12 @@ describe('Test DartsGame', () => {
   test('The throw method receive only valid types of data', () => {
     expect(() => game.throw('9', '3')).toThrow('All parameters must be an int!');
   });
+
+  test('After three throws of the first player, the second player will throw his first one', () => {
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    expect(game.score(1)).toBe(274);
+  });
 });
