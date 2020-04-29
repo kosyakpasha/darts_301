@@ -56,7 +56,9 @@ class DartsGame {
   };
 
   _checkLastThrow = (currentPoints, lastThrowPoints, factor) => {
-    if (currentPoints < 0 || (currentPoints === 0 && factor !== 2)) {
+    if (currentPoints === 0 && factor === 2) {
+      this._showWinner(this._players[this._currentPlayerIndex]);
+    } else if (currentPoints < 0 || (currentPoints === 0 && factor !== 2)) {
       this._players[this._currentPlayerIndex].currentPoints += lastThrowPoints;
     }
   };
@@ -66,6 +68,8 @@ class DartsGame {
       throw new Error('Type of index must be an int!')
     }
   };
+
+  _showWinner = player => console.log(`Player ${player.name} won!`);
 }
 
 module.exports = DartsGame;
