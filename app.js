@@ -12,7 +12,13 @@ class DartsGame {
     }
   });
 
-  score = playerIndex => this._players[playerIndex].currentPoints;
+  score = playerIndex => {
+    if (!Number.isInteger(playerIndex)) {
+      throw new Error('Type of index must be an int!')
+    }
+
+    return this._players[playerIndex].currentPoints;
+  };
 
   throw = (score, factor) => {
     const lastThrowPoints = score * factor;
