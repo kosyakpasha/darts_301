@@ -1,14 +1,14 @@
 {
-  "name": "app",
+  "name": "darts_301",
   "version": "1.0.0",
-  "description": "",
+  "description": "This game was created by TDD methodology",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "jest"
+    "test": "jest",
+    "test:cov": "jest --collect-coverage"
   },
   "author": "",
   "license": "ISC",
