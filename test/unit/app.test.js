@@ -92,4 +92,22 @@ describe('Test the throw method', () => {
     game.throw(5, 2);
     expect(game.score(0)).toBe(0);
   });
+
+  test('The winner was shown', () => {
+    const consoleSpy = jest.spyOn(console, 'log');
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(20, 3);
+    game.throw(20, 2);
+    game.throw(11, 1);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(5, 2);
+    expect(consoleSpy).toHaveBeenCalledWith('Player Ivan won!');
+  });
 });
