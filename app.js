@@ -22,15 +22,21 @@ class DartsGame {
 
   throw = (score, factor) => {
     this._validateThrowParams(score, factor);
-
     const lastThrowPoints = score * factor;
     this._throwCount++;
-
-    if (this._throwCount % 4 === 0 && this._throwCount !== 0) {
-      this._currentPlayerIndex++;
-    }
-
     this._players[this._currentPlayerIndex].currentPoints -= lastThrowPoints;
+
+    if (this._throwCount % 3 === 0 && this._throwCount !== 0) {
+      this._currentPlayerIndex++;
+
+      this._backQueueToTheBeginning();
+    }
+  };
+
+  _backQueueToTheBeginning = () => {
+    if (this._currentPlayerIndex > this._players.length - 1) {
+      this._currentPlayerIndex = 0;
+    }
   };
 
   _validateThrowParams = (score, factor) => {
