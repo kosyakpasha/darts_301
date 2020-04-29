@@ -47,4 +47,15 @@ describe('Test the throw method', () => {
     game.throw(9, 3);
     expect(game.score(1)).toBe(274);
   });
+
+  test('After throw of the last player, will be throw of the first', () => {
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(20, 3);
+    expect(game.score(0)).toBe(61);
+  });
 });
