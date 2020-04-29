@@ -2,6 +2,7 @@ class DartsGame {
   constructor(players) {
     this._players = this._createPlayers(players);
     this._currentPlayerIndex = 0;
+    this._throwCount = 0;
   }
 
   _createPlayers = playerNames => playerNames.map(playerName => {
@@ -26,6 +27,11 @@ class DartsGame {
     }
 
     const lastThrowPoints = score * factor;
+    this._throwCount++;
+
+    if (this._throwCount % 4 === 0 && this._throwCount !== 0) {
+      this._currentPlayerIndex++;
+    }
 
     this._players[this._currentPlayerIndex].currentPoints -= lastThrowPoints;
   };
