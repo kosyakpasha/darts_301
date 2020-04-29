@@ -58,4 +58,21 @@ describe('Test the throw method', () => {
     game.throw(20, 3);
     expect(game.score(0)).toBe(61);
   });
+
+  test('Player has 291 points before the last throw, he mush have 2 factor for scoring last trow points. There is fail try.', () => {
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(20, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(20, 3);
+    game.throw(20, 2);
+    game.throw(11, 1);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(9, 3);
+    game.throw(10, 1);
+    expect(game.score(0)).toBe(10);
+  });
 });
