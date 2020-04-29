@@ -1,4 +1,4 @@
-class DartsGame {
+class Game {
   constructor(players) {
     this._players = this._createPlayers(players);
     this._currentPlayerIndex = 0;
@@ -72,4 +72,4 @@ class DartsGame {
   _showWinner = player => console.log(`Player ${player.name} won!`);
 }
 
-module.exports = DartsGame;
+module.exports = Game;

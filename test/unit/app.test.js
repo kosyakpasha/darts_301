@@ -1,15 +1,15 @@
-const DartsGame = require('./../../app');
+const Game = require('./../../app');
 let game;
 
-describe('Test DartsGame', () => {
+describe('Test Game', () => {
   test('Handle clean game', () => {
-    expect(DartsGame).toBe(DartsGame);
+    expect(Game).toBe(Game);
   });
 });
 
 describe('Test the score method', () => {
   beforeEach(() => {
-    game = new DartsGame(['Ivan', 'Petr']);
+    game = new Game(['Ivan', 'Petr']);
   });
 
   test('Receive points for first player', () => {
@@ -23,7 +23,7 @@ describe('Test the score method', () => {
 
 describe('Test the throw method', () => {
   beforeEach(() => {
-    game = new DartsGame(['Ivan', 'Petr']);
+    game = new Game(['Ivan', 'Petr']);
   });
 
   test('The first player can make the first throw', () => {
@@ -62,7 +62,7 @@ describe('Test the throw method', () => {
 
 describe('Test the last throw', () => {
   beforeEach(() => {
-    game = new DartsGame(['Ivan', 'Petr']);
+    game = new Game(['Ivan', 'Petr']);
     game.throw(20, 3);
     game.throw(20, 3);
     game.throw(20, 3);
