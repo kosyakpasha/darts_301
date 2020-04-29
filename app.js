@@ -1,6 +1,7 @@
 class DartsGame {
   constructor(players) {
     this._players = this._createPlayers(players);
+    this._currentPlayerIndex = 0;
   }
 
   _createPlayers = playerNames => playerNames.map(playerName => {
@@ -12,6 +13,12 @@ class DartsGame {
   });
 
   score = playerIndex => this._players[playerIndex].currentPoints;
+
+  throw = (score, factor) => {
+    const lastThrowPoints = score * factor;
+
+    this._players[this._currentPlayerIndex].currentPoints -= lastThrowPoints;
+  };
 }
 
 module.exports = DartsGame;
