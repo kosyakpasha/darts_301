@@ -31,6 +31,10 @@ class DartsGame {
 
       this._backQueueToTheBeginning();
     }
+
+    const currentPoints = this.score(this._currentPlayerIndex);
+
+    this._checkLastThrow(currentPoints, lastThrowPoints, factor);
   };
 
   _backQueueToTheBeginning = () => {
@@ -49,6 +53,12 @@ class DartsGame {
 
     if (!areParamsValid) {
       throw new Error('The throw parameters must be valid!');
+    }
+  };
+
+  _checkLastThrow = (currentPoints, lastThrowPoints, factor) => {
+    if (currentPoints < 0 || (currentPoints === 0 && factor !== 2)) {
+      this._players[this._currentPlayerIndex].currentPoints += lastThrowPoints;
     }
   };
 
