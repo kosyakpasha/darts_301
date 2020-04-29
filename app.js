@@ -21,6 +21,10 @@ class DartsGame {
   };
 
   throw = (score, factor) => {
+    if (!Number.isInteger(score) || !Number.isInteger(factor)) {
+      throw new Error('All parameters must be an int!')
+    }
+
     const lastThrowPoints = score * factor;
 
     this._players[this._currentPlayerIndex].currentPoints -= lastThrowPoints;
