@@ -4,15 +4,27 @@
   "description": "This game was created by TDD methodology",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "src/test"
   },
   "scripts": {
+    "build": "babel src --out-dir build",
+    "game": "node build/js/app.js",
+    "flow": "flow",
     "test": "jest",
-    "test:cov": "jest --collect-coverage"
+    "test:cov": "jest --collect-coverage",
+    "start": "npm run build && npm run game"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-flow": "^7.9.0",
+    "flow-bin": "^0.125.1",
     "jest": "^25.4.0"
+  },
+  "dependencies": {
+    "console-table-printer": "^1.4.26"
   }
 }

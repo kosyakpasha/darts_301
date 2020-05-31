@@ -1,4 +1,4 @@
-const Game = require('./../../app');
+const Game = require('../../js/app');
 let game;
 
 describe('Test Game', () => {
